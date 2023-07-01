@@ -15,7 +15,7 @@
 }
 
 .card {
-  @apply rounded-lg shadow p-4;
+  @apply rounded-lg shadow p-4 bg-white;
 }
 
 .title {
