@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
   template: `
     <h1 class="title">remote-a-feature-a works!</h1>
     <div class="flex gap-4 my-8" *ngIf="withRouting">
-        <a class="btn" routerLinkActive="btn-active" routerLink="">Root</a>
+        <a class="btn" routerLinkActive="btn-active" routerLink="../root">Root</a>
         <a class="btn" routerLinkActive="btn-active" routerLink="../sibling"
         >Sibling</a
         >

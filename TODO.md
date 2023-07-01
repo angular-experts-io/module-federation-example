@@ -6,3 +6,4 @@
 * add AX nx-plugin generators
 * add links to remotes (from host, DEV mode only)
 * try out 3rd party bucket cache / nx cache
+* dashboard with routes, remote a, root redirects to remote-a instead of self in the dashboard
