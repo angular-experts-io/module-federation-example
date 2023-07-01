@@ -4,6 +4,9 @@
 
 Follow us [@tomastrajan](https://twitter.com/tomastrajan), [@kreuzercode](https://twitter.com/kreuzercode), [AngularExperts.io](https://angularexperts.io)
 
+
+<img src="https://raw.githubusercontent.com/angular-experts-io/module-federation-example/master/docs/example.jpg" />
+
 ## Get started
 
 - `npm ci`
