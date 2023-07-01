@@ -45,12 +45,49 @@
       "unitTestRunner": "jest",
       "e2eTestRunner": "cypress"
     },
+    "@nx/angular:host": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress",
+      "skipTests": true,
+      "standalone": true,
+      "dynamic": true,
+      "addTailwind": true
+    },
+    "@nx/angular:remote": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress",
+      "skipTests": true,
+      "standalone": true,
+      "addTailwind": true,
+      "host": "host-example"
+    },
     "@nx/angular:library": {
       "linter": "eslint",
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "buildable": true,
+      "compilationMode": "full",
+      "skipTests": true,
+      "standalone": true,
+      "routing": true,
+      "lazy": true,
+      "changeDetection": "OnPush",
+      "inlineStyle": true,
+      "inlineTemplate": true,
+      "displayBlock": true,
+      "addTailwind": true
     },
     "@nx/angular:component": {
-      "style": "css"
+      "style": "css",
+      "standalone": true,
+      "changeDetection": "OnPush",
+      "skipTests": true,
+      "inlineStyle": true,
+      "inlineTemplate": true,
+      "displayBlock": true
     }
   }
 }

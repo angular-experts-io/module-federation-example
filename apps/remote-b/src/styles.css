@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+    @apply rounded-lg px-4 py-2 bg-blue-700 text-white;
+}
+
+.btn:hover {
+    @apply bg-blue-900;
+}
+
+.btn-active {
+    @apply bg-blue-900;
+}
+
+.card {
+    @apply rounded-lg shadow p-4;
+}
+
+.title {
+    @apply text-2xl font-display font-bold;
+}
+
+/* You can add global styles to this file, and also import other style files */

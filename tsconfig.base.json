@@ -8,13 +8,29 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es2022",
     "module": "esnext",
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@angular-experts/host-example/feature/dashboard": [
+        "libs/host-example/feature/dashboard/src/index.ts"
+      ],
+      "@angular-experts/host-example/feature/dashboard-with-subroutes": [
+        "libs/host-example/feature/dashboard-with-subroutes/src/index.ts"
+      ],
+      "@angular-experts/remote-a/feature/a": [
+        "libs/remote-a/feature/a/src/index.ts"
+      ],
+      "@angular-experts/remote-b/feature/b": [
+        "libs/remote-b/feature/b/src/index.ts"
+      ],
+      "@angular-experts/shared/ui/mf-loader": [
+        "libs/shared/ui/mf-loader/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

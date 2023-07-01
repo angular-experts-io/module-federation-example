@@ -1,0 +1,40 @@
+<header class="shadow-lg">
+  <div class="container mx-auto">
+    <div class="flex items-center gap-8 py-2">
+      <a href="https://angularexperts.io" target="_blank">
+        <img
+          class="h-16"
+          src="assets/angular-experts.png"
+          alt="Angular Experts"
+        />
+      </a>
+      <span class="text-blue-700 text-2xl font-bold"
+        >Module Federation Example</span
+      >
+      <span class="flex-1"></span>
+      <a
+        class="btn"
+        routerLink="dashboard"
+        routerLinkActive="btn-active"
+        >Dashboard</a
+      >
+      <a
+        class="btn"
+        routerLink="dashboard-with-subroutes"
+        routerLinkActive="btn-active"
+        >Dashboard (as routes)</a
+      >
+      <a class="btn" routerLink="remote-a" routerLinkActive="btn-active"
+        >Remote A</a
+      >
+      <a class="btn" routerLink="remote-b" routerLinkActive="btn-active"
+        >Remote B</a
+      >
+    </div>
+  </div>
+</header>
+<main class="flex-1 pt-8">
+  <div class="container mx-auto">
+    <router-outlet />
+  </div>
+</main>
