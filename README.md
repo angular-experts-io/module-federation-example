@@ -14,12 +14,70 @@ Follow us [@tomastrajan](https://twitter.com/tomastrajan), [@kreuzercode](https:
 
 # Caching
 
-- caching works on level of the apps (host and remotes), these apps are built (and cached)
-- module federation decouples build of host and remotes
-- changing remote does NOT necessitate rebuilding of the host
-- only affected remote is are rebuilt, (not affected remotes cam be consumed from cache)
-- caching build of libs like `feature` or `ui` doesn't help because they still need to be built with the final Angular build (eg host or remote)
-- making libs like `feature` or `ui` buildable makes overall perf worse becase their build doesn't help to spped up final Angular build (eg host or remote)
+## Caching tl;dr;
+
+- caching works on level of the apps (`host` and `remotes`), these apps are built using the `full build` (and cached)
+- module federation decouples build of `host` and `remotes`
+- changing a `remote` does NOT necessitate rebuilding of the `host` (or other `remotes`)
+- only affected `remotes` are rebuilt, (not affected `remotes` cam be consumed from cache)
+- caching build of buildable libs like `feature` or `ui` doesn't help because they still need to be built with the `full` Angular build (eg `host` or `remote`)
+- making libs like `feature` or `ui` buildable makes overall perf worse because their build doesn't help to speed up `full` Angular build (eg `host` or `remote`)
+
+## Caching in depth
+
+### Vocabulary (Build types)
+
+A lot of confusion stems from lack of differentiation between build types when thinking
+about the NX build caching and the module federation approach as even though
+all builds can be cached, they are not all equal in terms of performance impact.
+
+* `(buildable) lib build` - build of a buildable lib (eg `feature` or `ui`) with the help of `ng-packagr` (lite)
+* `full build` (or `app build`) - build of the final app (eg `host` or `remote`) with the help of `@nx/angular:webpack-browser` (full)
+
+## Caching scenarios
+
+### Without module federation
+
+#### Scenario 1 - `app` and non-buildable libs
+
+* `full build` only - the `app` is built with the help of `@angular-devkit/build-angular:browser` (full)
+* the `full build` builds all libs from the src (eager and lazy loaded features)
+* the `full build` is as fast as standard build in Angular CLI workspace
+* the `full build` uses Angular cache
+* the `full build` when in dev mode (`serve`) will build the whole app (when called) and after rebuild only lazy loaded feature (module or routes) which were changed by the DEV
+
+> This approach is the standard approach for most Angular apps today and works very well for small to medium sized apps (eg up to 10-20 lazy features)
+
+This approach starts to struggle when amount and size of lazy loaded feature grows which leads to:
+1. slow prod build
+2. slow start of dev build (followed by quick rebuilds of only changed lazy features)
+
+#### Scenario 2 - `app` and buildable libs
+
+* all the `(buildable) libs` are built (into `dist`) before the execution of the `full build` 
+* `full build` then builds `app` (multiple builders possible) and references the already built libs from `dist`
+* the `full build` is as fast as standard build in Angular CLI workspace, that means **NOT FASTER** than scenario 1 ( we tried this also with IVY `compilationMode: 'full'` for the libs and it did NOT lead to perf improvements), if you have different reproduction, please ping me [@tomastrajan](https://twitter.com/tomastrajan) on Twitter
+* this means we're **SLOWER** than before because we have to first build the libs and then build the app (even though the app build is the same speed as before) so we end up with longer build time
+* the subsequent builds consume `buildable libs` from cache (if not changed) so at best we can get to the performance of scenario 1 (but never better) but with much more overhead in process (buildable libs)
+
+> This approach, if it worked, would be a great way to speed up the build of the app but unfortunately it doesn't work as expected and is actually slower than scenario 1, what we would wanted is:
+
+* buildable libs (eg lazy features) are prebuilt and cached
+* prebuilt libs are consumed by the `full build` of the app AND have positive impact on the build time of the app **<- this is not the case** 
+
+#### Scenario 3 - `app` and buildable libs and module federation
+
+Based on our current understanding, module federation represents a **workaround** for the problem described in scenario 2.
+
+With module federation, the situation changes:
+
+* lazy loaded feature libs get their own corresponding `remote` app which will be build using a `full build` (and cached)
+* the main app will become a `host` app which will be build using a `full build` (and cached)
+* now instead of one `full build` we have multiple `full builds` (one for each `remote` (lazy loaded feature) and one for the `host`)
+* these `full builds` are decoupled and can be built, deployed and cached independently
+* the interaction between the `full build` and `buildable libs` is the same as in scenario 2 which would lead to an argument that it **NEVER** makes sense to have buildable libs (besides case when you want to publish them as npm packages, OR use Typescript compilation as a form of "testing"), again, please ping me [@tomastrajan](https://twitter.com/tomastrajan) on Twitter if you have different reproduction 
+
+
 
 # TODOs
 
