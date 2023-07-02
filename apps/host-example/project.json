@@ -27,6 +27,7 @@
       },
       "configurations": {
         "production": {
+          "baseHref": "/module-federation-example",
           "budgets": [
             {
               "type": "initial",
