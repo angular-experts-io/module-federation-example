@@ -1,11 +1,11 @@
-name: Deploy
+name: Build and Deploy
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build:
+  build-anddeploy:
 
     runs-on: ubuntu-latest
 
@@ -14,10 +14,21 @@ jobs:
         node-version: [18.x]
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run build --if-present
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build --if-present
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist/apps/host-example
