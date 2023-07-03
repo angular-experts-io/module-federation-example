@@ -106,6 +106,5 @@
         "port": 4200
       }
     }
-  },
-  "implicitDependencies": ["remote-a", "remote-b"]
+  }
 }

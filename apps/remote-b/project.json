@@ -10,6 +10,7 @@
       "executor": "@nx/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "buildLibsFromSource": false,
         "outputPath": "dist/apps/remote-b",
         "index": "apps/remote-b/src/index.html",
         "main": "apps/remote-b/src/main.ts",

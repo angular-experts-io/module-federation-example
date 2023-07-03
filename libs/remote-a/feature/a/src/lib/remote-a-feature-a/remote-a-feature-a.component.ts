@@ -9,11 +9,11 @@ import { RouterModule } from '@angular/router';
   template: `
     <h1 class="title">remote-a-feature-a works!</h1>
     <div class="flex gap-4 my-8" *ngIf="withRouting">
-        <a class="btn" routerLinkActive="btn-active" routerLink="../root">Root</a>
-        <a class="btn" routerLinkActive="btn-active" routerLink="../sibling"
+      <a class="btn" routerLinkActive="btn-active" routerLink="../root">Root</a>
+      <a class="btn" routerLinkActive="btn-active" routerLink="../sibling"
         >Sibling</a
-        >
-        <a class="btn" routerLinkActive="btn-active" routerLink="child">Child</a>
+      >
+      <a class="btn" routerLinkActive="btn-active" routerLink="child">Child</a>
     </div>
     <router-outlet *ngIf="withRouting" />
   `,
@@ -27,6 +27,5 @@ import { RouterModule } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RemoteAFeatureAComponent {
-  Math = Math;
   @Input() withRouting = true;
 }
