@@ -42,7 +42,6 @@ Better perf than Angular CLI, because only the changed libs are built (not the w
 
 # Observations
 
-*  using 
 * buildable libs **do NOT help** (are worse than non-buildable) when using `@angular-devkit/build-angular:browser` builder for host and remotes
   * the buildable libs need to be built (takes time)
   * then they are ignored and whole thing is build through the consumer app (host / remote) with  `@angular-devkit/build-angular:browser` builder
@@ -55,7 +54,7 @@ Better perf than Angular CLI, because only the changed libs are built (not the w
   * `npm run serve:remote-a`
   * change `libs/remote-a/feature/asrc/lib/remote-a-feature-a/remote-a-feature-a.component.ts`, will be reflected in the browser
   * another change to the same file, will not be reflected in the browser
-
+  * workaround, remove `"buildLibsFromSource": false,` from `project.json` of  host and remotes
 # TODOs
 
 Contribute to this project by picking up one of the following [TODOs](TODO.md).
