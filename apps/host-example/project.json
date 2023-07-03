@@ -10,6 +10,7 @@
       "executor": "@nx/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "buildLibsFromSource": false,
         "outputPath": "dist/apps/host-example",
         "index": "apps/host-example/src/index.html",
         "main": "apps/host-example/src/main.ts",
@@ -106,5 +107,6 @@
         "port": 4200
       }
     }
-  }
+  },
+  "implicitDependencies": ["remote-a", "remote-b"]
 }
