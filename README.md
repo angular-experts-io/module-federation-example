@@ -50,8 +50,8 @@ Better perf than Angular CLI, because only the changed libs are built (not the w
 
 # ⚠️ Unresolved problems ⚠️
 
-*  **Using `"buildLibsFromSource": false,` seems to break live reload, only reloads for the first change**
-  * `npm run serve:remote-a`
+* Using `"buildLibsFromSource": false,` seems to break live reload, only reloads for the first change
+  * start the remote with `npm run serve:remote-a`
   * change `libs/remote-a/feature/asrc/lib/remote-a-feature-a/remote-a-feature-a.component.ts`, will be reflected in the browser
   * another change to the same file, will not be reflected in the browser
   * workaround, remove `"buildLibsFromSource": false,` from `project.json` of  host and remotes
