@@ -1,3 +1,9 @@
+@angular-experts/host-example/feature/dashboard
+
+@angular-experts/host-example/feature/dashboard-with-subroutes
+
+@angular-experts/shared/ui/mf-loader
+
 @angular/common
 MIT
 
