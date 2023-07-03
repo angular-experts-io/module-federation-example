@@ -8,4 +8,11 @@ export const remoteRoutes: Route[] = [
         (m) => m.remoteAFeatureARoutes
       ),
   },
+  {
+    path: 'a1',
+    loadChildren: () =>
+      import('@angular-experts/remote-a/feature/a1').then(
+        (m) => m.remoteAFeatureA1Routes
+      ),
+  },
 ];

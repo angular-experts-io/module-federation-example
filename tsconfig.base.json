@@ -24,6 +24,9 @@
       "@angular-experts/remote-a/feature/a": [
         "libs/remote-a/feature/a/src/index.ts"
       ],
+      "@angular-experts/remote-a/feature/a1": [
+        "libs/remote-a/feature/a1/src/index.ts"
+      ],
       "@angular-experts/remote-b/feature/b": [
         "libs/remote-b/feature/b/src/index.ts"
       ],

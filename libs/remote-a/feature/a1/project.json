@@ -1,7 +1,7 @@
 {
-  "name": "remote-b-feature-b",
+  "name": "remote-a-feature-a1",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/remote-b/feature/b/src",
+  "sourceRoot": "libs/remote-a/feature/a1/src",
   "prefix": "angular-experts",
   "tags": [],
   "projectType": "library",
@@ -10,15 +10,15 @@
       "executor": "@nx/angular:ng-packagr-lite",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "project": "libs/remote-b/feature/b/ng-package.json",
-        "tailwindConfig": "libs/remote-b/feature/b/tailwind.config.js"
+        "project": "libs/remote-a/feature/a1/ng-package.json",
+        "tailwindConfig": "libs/remote-a/feature/a1/tailwind.config.js"
       },
       "configurations": {
         "production": {
-          "tsConfig": "libs/remote-b/feature/b/tsconfig.lib.prod.json"
+          "tsConfig": "libs/remote-a/feature/a1/tsconfig.lib.prod.json"
         },
         "development": {
-          "tsConfig": "libs/remote-b/feature/b/tsconfig.lib.json"
+          "tsConfig": "libs/remote-a/feature/a1/tsconfig.lib.json"
         }
       },
       "defaultConfiguration": "production"
@@ -27,7 +27,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/remote-b/feature/b/jest.config.ts",
+        "jestConfig": "libs/remote-a/feature/a1/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -42,8 +42,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "libs/remote-b/feature/b/**/*.ts",
-          "libs/remote-b/feature/b/**/*.html"
+          "libs/remote-a/feature/a1/**/*.ts",
+          "libs/remote-a/feature/a1/**/*.html"
         ]
       }
     }
