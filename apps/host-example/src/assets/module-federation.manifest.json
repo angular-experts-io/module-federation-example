@@ -1,4 +1,4 @@
 {
-  "remote-a": "http://localhost:4201",
+  "remote-a": "http://B:indetifier@version",
   "remote-b": "http://localhost:4202"
 }

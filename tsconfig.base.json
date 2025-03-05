@@ -30,6 +30,7 @@
       "@angular-experts/remote-b/feature/b": [
         "libs/remote-b/feature/b/src/index.ts"
       ],
+      "@angular-experts/shared/ui/dummy": ["libs/shared/ui/dummy/src/index.ts"],
       "@angular-experts/shared/ui/mf-loader": [
         "libs/shared/ui/mf-loader/src/index.ts"
       ]
