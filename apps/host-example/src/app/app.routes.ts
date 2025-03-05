@@ -7,6 +7,8 @@ export const appRoutes: Route[] = [
     pathMatch: 'full',
     redirectTo: 'remote-a',
   },
+
+  // DYNAMIC FEDERATION
   {
     path: 'dashboard',
     loadChildren: () =>
@@ -21,7 +23,6 @@ export const appRoutes: Route[] = [
         '@angular-experts/host-example/feature/dashboard-with-subroutes'
       ).then((m) => m.hostExampleFeatureDashboardWithSubroutesRoutes),
   },
-  // DYNAMIC FEDERATION
   {
     path: 'remote-a',
     loadChildren: () =>
@@ -37,11 +38,11 @@ export const appRoutes: Route[] = [
   // {
   //   path: 'remote-a',
   //   loadChildren: () =>
-  //     import('@angular-experts/remote-a/feature/a').then((m) => m.remoteAFeatureARoutes),
+  //     import('remote-a/Routes').then((m) => m.remoteRoutes),
   // },
   // {
   //   path: 'remote-b',
   //   loadChildren: () =>
-  //     import('@angular-experts/remote-b/feature/b').then((m) => m.remoteBFeatureBRoutes),
+  //     import('remote-b/Routes').then((m) => m.remoteRoutes),
   // },
 ];

@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "npm run serve:all",
-    "serve:all": "nx serve host-example --open --devRemotes=remote-a,remote-b",
-    "serve:host-example": "nx serve host-example --open",
+    "start": "npm run serve:dynamic",
+    "serve:static": "nx serve host-example --open",
+    "serve:dynamic": "nx serve host-example --open --devRemotes=remote-a,remote-b",
     "serve:remote-a": "nx serve remote-a --open",
     "serve:remote-b": "nx serve remote-b --open",
     "build": "nx run-many -t build"

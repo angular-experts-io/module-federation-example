@@ -6,23 +6,6 @@
   "tags": [],
   "projectType": "library",
   "targets": {
-    "build": {
-      "executor": "@nx/angular:ng-packagr-lite",
-      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
-      "options": {
-        "project": "libs/host-example/feature/dashboard/ng-package.json",
-        "tailwindConfig": "libs/host-example/feature/dashboard/tailwind.config.js"
-      },
-      "configurations": {
-        "production": {
-          "tsConfig": "libs/host-example/feature/dashboard/tsconfig.lib.prod.json"
-        },
-        "development": {
-          "tsConfig": "libs/host-example/feature/dashboard/tsconfig.lib.json"
-        }
-      },
-      "defaultConfiguration": "production"
-    },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],

@@ -1,5 +1,5 @@
 // STATIC FEDERATION
-// import'./bootstrap';
+// import('./bootstrap').catch(err => console.error(err));
 
 // DYNAMIC FEDERATION
 import { setRemoteDefinitions } from '@nx/angular/mf';
